@@ -8,8 +8,9 @@
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "prepare": "husky install",
-    "test": "vitest"
+    "test": "vitest",
+    "test:coverage": "vitest --coverage",
+    "prepare": "husky install"
   },
   "dependencies": {
     "next": "14.0.3",
@@ -30,6 +31,7 @@
     "@typescript-eslint/parser": "^6.13.2",
     "@vitest/browser": "^1.0.1",
     "@vitest/coverage-istanbul": "^1.0.1",
+    "@vitest/coverage-v8": "^1.0.1",
     "eslint": "^8",
     "eslint-config-next": "^14.0.3",
     "eslint-config-prettier": "^9.1.0",
