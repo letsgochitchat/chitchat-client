@@ -18,4 +18,4 @@ export const colors = {
   gray200: '#C4C9D4',
   gray100: '#E1E4EA',
   gray50: '#F0F2F4',
-};
+} as const;
