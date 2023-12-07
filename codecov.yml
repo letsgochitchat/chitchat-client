@@ -3,4 +3,4 @@ coverage:
     patch: off
 
 comment:
-  layout: 'header, reach, diff, flags, components'
+  layout: 'header, reach, diff, flags'
