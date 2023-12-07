@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { ChitchatStyleProvider } from '@/providers';
+import { StyleProvider, SuspensiveProvider } from '@/providers';
 
 export const metadata: Metadata = {
   title: 'Chitchat',
@@ -10,7 +10,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="kr">
       <body>
-        <ChitchatStyleProvider>{children}</ChitchatStyleProvider>
+        <SuspensiveProvider>
+          <StyleProvider>{children}</StyleProvider>
+        </SuspensiveProvider>
       </body>
     </html>
   );

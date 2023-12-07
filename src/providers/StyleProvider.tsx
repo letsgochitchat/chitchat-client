@@ -4,9 +4,9 @@ import { GlobalStyle, theme } from '@/styles';
 import { ThemeProvider } from '@emotion/react';
 import type { PropsWithChildren } from 'react';
 
-type ChitchatStyleProviderProps = PropsWithChildren;
+type StyleProviderProps = PropsWithChildren;
 
-export const ChitchatStyleProvider = ({ children }: ChitchatStyleProviderProps) => {
+export const StyleProvider = ({ children }: StyleProviderProps) => {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
