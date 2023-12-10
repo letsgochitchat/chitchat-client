@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "test": "vitest --coverage && codecov",
+    "test": "vitest --coverage",
     "prepare": "husky install",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
@@ -46,7 +46,6 @@
     "@vitest/browser": "^1.0.1",
     "@vitest/coverage-istanbul": "^1.0.1",
     "@vitest/coverage-v8": "^1.0.1",
-    "codecov": "^3.8.3",
     "eslint": "^8",
     "eslint-config-next": "^14.0.3",
     "eslint-config-prettier": "^9.1.0",
