@@ -1,4 +1,4 @@
-import { type ButtonHTMLAttributes, forwardRef, type ReactNode } from 'react';
+import { type ButtonHTMLAttributes, type ForwardedRef, forwardRef, type ReactNode } from 'react';
 import styled from '@emotion/styled';
 
 type ButtonProps = {
@@ -19,14 +19,12 @@ type ButtonProps = {
   children: ReactNode;
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
-export const Button = forwardRef(function Button({
-  disabled = false,
-  width = '100%',
-  children,
-  ...props
-}: ButtonProps) {
+export const Button = forwardRef(function Button(
+  { disabled = false, width = '100%', children, ...props }: ButtonProps,
+  ref: ForwardedRef<HTMLButtonElement>
+) {
   return (
-    <StyledButton disabled={disabled} width={width} {...props}>
+    <StyledButton ref={ref} disabled={disabled} width={width} {...props}>
       {children}
     </StyledButton>
   );

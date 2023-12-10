@@ -1,4 +1,4 @@
-import { type ButtonHTMLAttributes, forwardRef, type ReactNode } from 'react';
+import { type ButtonHTMLAttributes, type ForwardedRef, forwardRef, type ReactNode } from 'react';
 import styled from '@emotion/styled';
 
 type GhostButtonProps = {
@@ -14,13 +14,12 @@ type GhostButtonProps = {
   children: ReactNode;
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
-export const GhostButton = forwardRef(function Button({
-  width = '100%',
-  children,
-  ...props
-}: GhostButtonProps) {
+export const GhostButton = forwardRef(function Button(
+  { width = '100%', children, ...props }: GhostButtonProps,
+  ref: ForwardedRef<HTMLButtonElement>
+) {
   return (
-    <StyledGhostButton width={width} {...props}>
+    <StyledGhostButton ref={ref} width={width} {...props}>
       {children}
     </StyledGhostButton>
   );
