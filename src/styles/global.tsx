@@ -1,6 +1,6 @@
 import { css, Global } from '@emotion/react';
 
-import { colors } from './themes';
+import { theme } from './themes';
 import { FontCSS, ResetCSS } from '.';
 
 const globalStyle = css`
@@ -11,7 +11,8 @@ const globalStyle = css`
   body {
     font-family: WantedSansVariable;
     font-weight: normal;
-    color: ${colors.gray900};
+    color: ${theme.colors.white};
+    background-color: ${theme.colors.gray900};
   }
 `;
 

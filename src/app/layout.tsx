@@ -1,3 +1,4 @@
+import { type PropsWithChildren } from 'react';
 import type { Metadata } from 'next';
 import { StyleProvider, SuspensiveProvider } from '@/providers';
 
@@ -6,9 +7,9 @@ export const metadata: Metadata = {
   description: "Let's Chitchat!",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+const RootLayout = ({ children }: PropsWithChildren) => {
   return (
-    <html lang="kr">
+    <html lang="ko">
       <body>
         <SuspensiveProvider>
           <StyleProvider>{children}</StyleProvider>
@@ -16,4 +17,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </body>
     </html>
   );
-}
+};
+
+export default RootLayout;
