@@ -19,7 +19,27 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@chitchat/components": ["./src/components"],
+      "@chitchat/components/*": ["./src/components/*"],
+      "@chitchat/constants": ["./src/constants"],
+      "@chitchat/constants/*": ["./src/constants/*"],
+      "@chitchat/exceptions": ["./src/exceptions"],
+      "@chitchat/exceptions/*": ["./src/exceptions/*"],
+      "@chitchat/hooks": ["./src/hooks"],
+      "@chitchat/hooks/*": ["./src/hooks/*"],
+      "@chitchat/libs": ["./src/libs"],
+      "@chitchat/libs/*": ["./src/libs/*"],
+      "@chitchat/providers": ["./src/providers"],
+      "@chitchat/providers/*": ["./src/providers/*"],
+      "@chitchat/store": ["./src/store"],
+      "@chitchat/store/*": ["./src/store/*"],
+      "@chitchat/styles": ["./src/styles"],
+      "@chitchat/styles/*": ["./src/styles/*"],
+      "@chitchat/types": ["./src/types"],
+      "@chitchat/types/*": ["./src/types/*"],
+      "@chitchat/utils": ["./src/utils"],
+      "@chitchat/utils/*": ["./src/utils/*"],
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "@types"],

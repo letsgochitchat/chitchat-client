@@ -1,11 +1,14 @@
-import { LOCAL_STORAGE_KEY } from '@/constants/storage';
-import type { ApiErrorScheme } from '@/exceptions';
-import { ApiException, CustomException, errorMessage } from '@/exceptions';
-import { isProd } from '@/utils';
+import { LOCAL_STORAGE_KEY } from '@chitchat/constants';
+import {
+  type ApiErrorScheme,
+  ApiException,
+  CustomException,
+  errorMessage,
+} from '@chitchat/exceptions';
+import { Storage } from '@chitchat/libs';
+import { isProd } from '@chitchat/utils';
 import type { AxiosError, AxiosResponse, InternalAxiosRequestConfig } from 'axios';
 import axios from 'axios';
-
-import { Storage } from '../storage';
 
 const DEVELOPMENT_API_URL = 'http://localhost:8088';
 const PRODUCTION_API_URL = 'http://localhost:8088';

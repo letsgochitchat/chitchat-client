@@ -1,4 +1,4 @@
-import type { ApiErrorScheme } from './type';
+import type { ApiErrorScheme } from '@chitchat/exceptions';
 
 class ApiException<ErrorCode = number> extends Error {
   declare code: ErrorCode;

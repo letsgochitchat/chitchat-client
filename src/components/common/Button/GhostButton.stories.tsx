@@ -1,6 +1,5 @@
+import { GhostButton as GhostButtonComponent } from '@chitchat/components';
 import type { Meta, StoryObj } from '@storybook/react';
-
-import { GhostButton as GhostButtonComponent } from './GhostButton';
 
 type GhostButton = typeof GhostButtonComponent;
 

@@ -1,6 +1,5 @@
+import { Button as ButtonComponent } from '@chitchat/components';
 import type { Meta, StoryObj } from '@storybook/react';
-
-import { Button as ButtonComponent } from './Button';
 
 type Button = typeof ButtonComponent;
 

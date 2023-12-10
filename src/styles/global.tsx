@@ -1,7 +1,5 @@
+import { FontCSS, ResetCSS, theme } from '@chitchat/styles';
 import { css, Global } from '@emotion/react';
-
-import { theme } from './themes';
-import { FontCSS, ResetCSS } from '.';
 
 const globalStyle = css`
   * {

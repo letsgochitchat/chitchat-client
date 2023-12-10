@@ -1,6 +1,6 @@
 import { type PropsWithChildren } from 'react';
 import type { Metadata } from 'next';
-import { StyleProvider, SuspensiveProvider } from '@/providers';
+import { StyleProvider, SuspensiveProvider } from '@chitchat/providers';
 
 export const metadata: Metadata = {
   title: 'Chitchat',

@@ -1,6 +1,6 @@
 'use client';
 
-import { GlobalStyle, theme } from '@/styles';
+import { GlobalStyle, theme } from '@chitchat/styles';
 import { ThemeProvider } from '@emotion/react';
 import type { PropsWithChildren } from 'react';
 

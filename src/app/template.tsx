@@ -1,7 +1,7 @@
 'use client';
 
 import { type PropsWithChildren } from 'react';
-import { theme } from '@/styles';
+import { theme } from '@chitchat/styles';
 import styled from '@emotion/styled';
 
 const Template = ({ children }: PropsWithChildren) => {
