@@ -46,6 +46,6 @@ const StyledButton = styled.button<ButtonProps>`
   border-radius: 16px;
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors.primaryHover};
+    background-color: ${({ theme, disabled }) => !disabled && theme.colors.primaryHover};
   }
 `;
