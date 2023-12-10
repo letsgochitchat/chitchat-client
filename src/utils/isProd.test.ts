@@ -1,5 +1,6 @@
-import { isProd } from '@chitchat/utils';
 import { describe, expect, it } from 'vitest';
+
+import { isProd } from './isProd';
 
 describe('isProd', () => {
   it(`인자가 'production'이면 반환 값은 'true'를 반환해야 합니다.`, () => {

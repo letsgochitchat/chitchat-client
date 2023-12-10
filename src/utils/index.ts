@@ -1,1 +1,1 @@
-export { isProd } from './isProd';
+export * from './isProd';
