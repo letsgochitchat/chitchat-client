@@ -86,10 +86,8 @@ export const ResetCSS = css`
     padding: 0;
     border: 0;
     font-size: 100%;
-    font: inherit;
     vertical-align: baseline;
   }
-  /* HTML5 display-role reset for older browsers */
   article,
   aside,
   details,
@@ -121,8 +119,21 @@ export const ResetCSS = css`
     content: '';
     content: none;
   }
+  button {
+    border: none;
+    cursor: pointer;
+    background-color: unset;
+  }
+  a {
+    text-decoration: none;
+    cursor: pointer;
+  }
   table {
     border-collapse: collapse;
     border-spacing: 0;
+  }
+  svg,
+  img {
+    vertical-align: top;
   }
 `;

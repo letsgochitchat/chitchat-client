@@ -1,7 +1,7 @@
 import { type ButtonHTMLAttributes, forwardRef, type ReactNode } from 'react';
 import styled from '@emotion/styled';
 
-export type ButtonProps = {
+type ButtonProps = {
   /**
    * Button의 비활성화를 정합니다.
    * @type boolean | undefined
@@ -35,14 +35,15 @@ export const Button = forwardRef(function Button({
 const StyledButton = styled.button<ButtonProps>`
   ${({ theme }) => theme.fonts.h4}
   display: flex;
+  justify-content: center;
   align-items: center;
-  flex-direction: center;
   color: ${({ theme, disabled }) => (disabled ? theme.colors.gray400 : theme.colors.white)};
   background-color: ${({ theme, disabled }) =>
     disabled ? theme.colors.gray600 : theme.colors.primary};
   width: ${({ width }) => width};
   height: 56px;
   cursor: ${({ disabled }) => (disabled ? 'default' : 'pointer')};
+  border-radius: 16px;
 
   &:hover {
     background-color: ${({ theme }) => theme.colors.primaryHover};
