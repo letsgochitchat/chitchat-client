@@ -16,7 +16,7 @@ const meta: Meta<Button> = {
     },
   },
   component: ButtonComponent,
-  title: 'Components/Common/Button',
+  title: 'Components/Button',
 };
 
 export default meta;
