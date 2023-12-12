@@ -6,7 +6,7 @@ import { motion, type Variants } from 'framer-motion';
 
 import { AnimatePortal } from '../Portal';
 
-type BottomSheetProps = {
+export type BottomSheetProps = {
   onClickOutside?: VoidFunction;
 } & ComponentProps<typeof AnimatePortal>;
 
@@ -54,9 +54,11 @@ const StyledBottomSheet = styled(motion.div)`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  min-height: 300px;
-  max-height: 99%;
-  padding-top: 6px;
+  min-height: 320px;
+  max-height: 100%;
+  padding-top: 12px;
+  padding-left: 16px;
+  padding-right: 16px;
   background-color: ${theme.colors.gray900};
   border-radius: 32px 32px 0px 0px;
 `;

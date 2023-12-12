@@ -2,26 +2,28 @@
 
 import Image from 'next/image';
 import { Button } from '@/components/common';
-import { BottomSheet } from '@/components/common/BottomSheet';
+import LoginBottomSheet from '@/components/LoginBottomSheet';
 import styled from '@emotion/styled';
 import { useOverlay } from '@toss/use-overlay';
 
 const StartPage = () => {
   const overlay = useOverlay();
 
-  const openBottomSheet = () =>
-    overlay.open(({ isOpen, close }) => <BottomSheet isShowing={isOpen} onClickOutside={close} />);
+  const openLoginBottomSheet = () =>
+    overlay.open(({ isOpen, close }) => (
+      <LoginBottomSheet isShowing={isOpen} onClickOutside={close} />
+    ));
 
   return (
     <StyledStartPage>
       <Image
-        src="/png/start-logo.png"
+        src="/png/start_logo.png"
         width={260}
         height={151}
         style={{ marginTop: '233px' }}
-        alt="Start Logo"
+        alt="Chitchat Start Logo"
       />
-      <Button onClick={openBottomSheet}>시작하기</Button>
+      <Button onClick={openLoginBottomSheet}>시작하기</Button>
     </StyledStartPage>
   );
 };
