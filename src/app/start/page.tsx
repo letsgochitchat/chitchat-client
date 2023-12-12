@@ -2,16 +2,15 @@
 
 import Image from 'next/image';
 import { Button } from '@/components/common';
-import { BottomSheetModal } from '@/components/common/BottomSheetModal';
+import { BottomSheet } from '@/components/common/BottomSheet';
 import styled from '@emotion/styled';
 import { useOverlay } from '@toss/use-overlay';
 
 const StartPage = () => {
   const overlay = useOverlay();
 
-  const openLoginBottomSheetModal = () => {
-    overlay.open(({ isOpen, close }) => <BottomSheetModal isOpen={isOpen} onClose={close} />);
-  };
+  const openBottomSheet = () =>
+    overlay.open(({ isOpen, close }) => <BottomSheet isShowing={isOpen} onClickOutside={close} />);
 
   return (
     <StyledStartPage>
@@ -22,7 +21,7 @@ const StartPage = () => {
         style={{ marginTop: '233px' }}
         alt="Start Logo"
       />
-      <Button onClick={openLoginBottomSheetModal}>시작하기</Button>
+      <Button onClick={openBottomSheet}>시작하기</Button>
     </StyledStartPage>
   );
 };
