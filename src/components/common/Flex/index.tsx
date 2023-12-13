@@ -2,10 +2,10 @@ import { type CSSProperties, type ForwardedRef, forwardRef, type HTMLAttributes 
 import styled from '@emotion/styled';
 
 export type FlexOptions = {
+  direction?: CSSProperties['flexDirection'];
   align?: CSSProperties['alignItems'];
   justify?: CSSProperties['justifyContent'];
   wrap?: CSSProperties['flexWrap'];
-  direction?: CSSProperties['flexDirection'];
   basis?: CSSProperties['flexBasis'];
   grow?: CSSProperties['flexGrow'];
   shrink?: CSSProperties['flexShrink'];
