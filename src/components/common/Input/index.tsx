@@ -14,7 +14,7 @@ export const Input = forwardRef(function Input(
   { label, guideMessage, width = '100%', onChange, ...props }: InputProps,
   ref: ForwardedRef<HTMLInputElement>
 ) {
-  const hasGuideMessage = guideMessage !== undefined;
+  const hasGuideMessage = guideMessage !== '';
 
   return (
     <StyledInputWrapper width={width}>
@@ -44,10 +44,17 @@ const StyledInput = styled.input<InputProps>`
   width: 100%;
   height: 48px;
   border-radius: 16px;
+  padding-left: 16px;
+  padding-right: 16px;
+  border: none;
+  outline: none;
   ${({ theme }) => css`
-    background-color: ${theme.colors.gray500};
+    background-color: ${theme.colors.gray800};
+    color: ${theme.colors.white};
+    caret-color: ${theme.colors.secondary};
     ::placeholder {
-      color: ${theme.colors.secondary};
+      ${theme.fonts.body1}
+      color: ${theme.colors.gray500};
     }
   `}
 `;
