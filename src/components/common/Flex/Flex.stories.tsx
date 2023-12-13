@@ -6,6 +6,10 @@ type Flex = typeof FlexComponent;
 
 const meta: Meta<Flex> = {
   argTypes: {
+    direction: {
+      control: 'select',
+      options: ['row', 'row-reverse', 'column', 'column-reverse'],
+    },
     align: {
       control: 'select',
       options: ['flex-start', 'flex-end', 'center', 'baseline', 'stretch'],
@@ -17,10 +21,6 @@ const meta: Meta<Flex> = {
     wrap: {
       control: 'select',
       options: ['nowrap', 'wrap', 'wrap-reverse'],
-    },
-    direction: {
-      control: 'select',
-      options: ['row', 'row-reverse', 'column', 'column-reverse'],
     },
     basis: {
       control: 'text',

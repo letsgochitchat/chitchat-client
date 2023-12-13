@@ -1,42 +1,41 @@
-import Image from 'next/image';
-import { colors } from '@/styles';
 import styled from '@emotion/styled';
 
 import { BottomSheet, type BottomSheetProps as LoginBottomSheetProps } from '../common/BottomSheet';
-import { IconClose } from '../common/Icons';
+import { Icon } from '../common/Icon';
+import { Text } from '../common/Text';
 
 const LoginBottomSheet = ({ isShowing, onClickOutside }: LoginBottomSheetProps) => {
   return (
     <BottomSheet isShowing={isShowing} onClickOutside={onClickOutside}>
       <StyledLoginBottomSheetHeader>
         <span style={{ width: '24px', height: '24px' }} />
-        {/* TODO: Text 컴포넌트 개발하면 변경 */}
-        <span>로그인</span>
-        <IconClose onClick={onClickOutside} color={colors.white} width="24px" height="24px" />
+        <Text color="white" styleType="body1">
+          로그인
+        </Text>
+        <Icon onClick={onClickOutside} type="close" size={24} cursor="pointer" />
       </StyledLoginBottomSheetHeader>
-      {/* TODO: Flex 컴포넌트 개발하면 변경 */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', width: '100%' }}>
         <StyledGoogleLoginButton>
-          <Image
-            src="/svg/google_icon.svg"
-            width={32}
-            height={32}
+          <Icon
+            type="google"
+            size={32}
+            cursor="pointer"
             style={{ position: 'absolute', left: '12px' }}
-            alt="Google Icon"
           />
-          {/* TODO: Text 컴포넌트 개발하면 변경 */}
-          <span>구글 로그인</span>
+          <Text color="gray700" styleType="h4">
+            구글 로그인
+          </Text>
         </StyledGoogleLoginButton>
         <StyledKakaoLoginButton>
-          <Image
-            src="/svg/kakao_icon.svg"
-            width={32}
-            height={32}
+          <Icon
+            type="kakao"
+            size={32}
+            cursor="pointer"
             style={{ position: 'absolute', left: '12px' }}
-            alt="Kakao Icon"
           />
-          {/* TODO: Text 컴포넌트 개발하면 변경 */}
-          <span>카카오 로그인</span>
+          <Text color="gray700" styleType="h4">
+            카카오 로그인
+          </Text>
         </StyledKakaoLoginButton>
       </div>
     </BottomSheet>

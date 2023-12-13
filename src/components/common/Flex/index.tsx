@@ -1,10 +1,10 @@
 import { type CSSProperties, type ForwardedRef, forwardRef, type HTMLAttributes } from 'react';
 
 export type FlexOptions = {
+  direction?: CSSProperties['flexDirection'];
   align?: CSSProperties['alignItems'];
   justify?: CSSProperties['justifyContent'];
   wrap?: CSSProperties['flexWrap'];
-  direction?: CSSProperties['flexDirection'];
   basis?: CSSProperties['flexBasis'];
   grow?: CSSProperties['flexGrow'];
   shrink?: CSSProperties['flexShrink'];
@@ -33,5 +33,3 @@ export const Flex = forwardRef(function Flex(
     </div>
   );
 });
-
-Flex.displayName = 'Flex';
