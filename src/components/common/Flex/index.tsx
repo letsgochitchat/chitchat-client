@@ -33,5 +33,3 @@ export const Flex = forwardRef(function Flex(
     </div>
   );
 });
-
-Flex.displayName = 'Flex';
