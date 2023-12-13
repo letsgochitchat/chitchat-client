@@ -2,13 +2,13 @@ export type Colors = typeof colors;
 export type ColorKeys = keyof typeof colors;
 
 export const colors = {
-  black: '#000000',
+  black: '#1F2128',
   white: '#ffffff',
   yellow: '#FEE500',
 
-  primary: '#6B66FF',
+  primary: '#6557FF',
   primaryHover: '#7366FF',
-  secondary: '#BFFF66',
+  secondary: '#BAFF59',
 
   gray900: '#16181E',
   gray800: '#20242D',
