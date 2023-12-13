@@ -16,7 +16,7 @@ const meta: Meta<GhostButton> = {
     },
   },
   component: GhostButtonComponent,
-  title: 'Components/Common/GhostButton',
+  title: 'Components/GhostButton',
 };
 
 export default meta;

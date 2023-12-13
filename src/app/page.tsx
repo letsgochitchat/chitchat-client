@@ -1,5 +1,16 @@
+'use client';
+
+import { useLayoutEffect } from 'react';
+import { useRouter } from 'next/navigation';
+
 const MainPage = () => {
-  return <h1>안뇽</h1>;
+  const router = useRouter();
+
+  useLayoutEffect(() => {
+    router.replace('/start');
+  }, [router]);
+
+  return null;
 };
 
 export default MainPage;

@@ -4,6 +4,7 @@ export type ColorKeys = keyof typeof colors;
 export const colors = {
   black: '#000000',
   white: '#ffffff',
+  yellow: '#FEE500',
 
   primary: '#6B66FF',
   primaryHover: '#7366FF',

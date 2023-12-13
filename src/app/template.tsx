@@ -3,9 +3,14 @@
 import { type PropsWithChildren } from 'react';
 import { theme } from '@/styles';
 import styled from '@emotion/styled';
+import { OverlayProvider } from '@toss/use-overlay';
 
 const Template = ({ children }: PropsWithChildren) => {
-  return <StyledLayout>{children}</StyledLayout>;
+  return (
+    <OverlayProvider>
+      <StyledLayout>{children}</StyledLayout>
+    </OverlayProvider>
+  );
 };
 
 export default Template;
