@@ -1,9 +1,7 @@
 import { type ForwardedRef, forwardRef, type SVGAttributes } from 'react';
+import { Close, Google, Kakao } from '@/constants/icons';
 import { type ColorKeys } from '@/styles';
 import styled from '@emotion/styled';
-import Close from 'public/icons/close.svg';
-import Google from 'public/icons/google.svg';
-import Kakao from 'public/icons/kakao.svg';
 
 export type IconType = keyof typeof ICON_TYPES;
 export type IconProps = {
