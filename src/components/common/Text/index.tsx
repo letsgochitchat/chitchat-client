@@ -3,7 +3,7 @@ import { type ColorKeys, type FontKeys } from '@/styles';
 import styled from '@emotion/styled';
 
 export type TextProps = {
-  styleType: FontKeys;
+  styleType?: FontKeys;
   tag?: 'p' | 'span';
   color?: ColorKeys;
   children: ReactNode;
@@ -20,7 +20,7 @@ export const Text = forwardRef(function Text(
   );
 });
 
-const StyledText = styled.span<TextProps>`
+const StyledText = styled.span<{ color: ColorKeys; styleType: FontKeys }>`
   color: ${({ color, theme }) => color && theme.colors[color]};
   ${({ theme, styleType }) => theme.fonts[styleType]};
 `;
