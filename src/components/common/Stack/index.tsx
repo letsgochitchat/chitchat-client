@@ -1,28 +1,43 @@
 import { type CSSProperties, type ForwardedRef, forwardRef, type HTMLAttributes } from 'react';
-
-import { Flex } from '../Flex';
+import styled from '@emotion/styled';
 
 type StackProps = {
   align?: CSSProperties['alignItems'];
   justify?: CSSProperties['justifyContent'];
-  direction?: CSSProperties['flexDirection'];
+  direction?: 'vertical' | 'horizontal';
   spacing?: number;
 } & HTMLAttributes<HTMLDivElement>;
 
 export const Stack = forwardRef(function Stack(
-  { children, spacing = 24, direction, align, justify, ...props }: StackProps,
+  { children, spacing = 24, direction = 'vertical', align, justify, ...props }: StackProps,
   ref: ForwardedRef<HTMLDivElement>
 ) {
   return (
-    <Flex
+    <StyledStack
       ref={ref}
       direction={direction}
+      spacing={spacing}
       align={align}
       justify={justify}
-      style={{ gap: spacing ? spacing : undefined }}
       {...props}
     >
       {children}
-    </Flex>
+    </StyledStack>
   );
 });
+
+const StyledStack = styled.div<StackProps>`
+  display: flex;
+  flex-direction: ${({ direction }) => (direction === 'vertical' ? 'column' : 'row')};
+  align-items: ${({ align }) => align};
+  justify-content: ${({ justify }) => justify};
+
+  > * {
+    ${({ direction, spacing }) =>
+      direction === 'vertical' ? `margin-bottom: ${spacing}px` : `margin-right: ${spacing}px`};
+  }
+
+  > *:last-child {
+    margin: 0;
+  }
+`;

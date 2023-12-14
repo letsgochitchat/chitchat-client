@@ -19,7 +19,7 @@ const LoginBottomSheet = ({ isShowing, onClickOutside }: LoginBottomSheetProps) 
         </Text>
         <CloseIcon onClick={onClickOutside} width={32} height={32} cursor="pointer" />
       </StyledLoginBottomSheetHeader>
-      <Stack direction="column" spacing={12} style={{ width: '100%' }}>
+      <Stack direction="vertical" spacing={12} style={{ width: '100%' }}>
         <StyledGoogleLoginButton>
           <Image
             src="/icons/google.svg"
