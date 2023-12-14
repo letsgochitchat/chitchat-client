@@ -3,17 +3,17 @@ import styled from '@emotion/styled';
 
 import { AddIcon, MenuIcon } from '../Icons';
 
-export const MainHeader = () => {
+export const Header = () => {
   return (
-    <StyledMainHeader>
-      <MenuIcon width={32} height={32} />
+    <StyledHeader>
+      <MenuIcon width={32} height={32} cursor="pointer" />
       <Image src="/png/logo.png" width={154} height={28} alt="Chitchat Logo" />
-      <AddIcon width={32} height={32} />
-    </StyledMainHeader>
+      <AddIcon width={32} height={32} cursor="pointer" />
+    </StyledHeader>
   );
 };
 
-const StyledMainHeader = styled.div`
+const StyledHeader = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
