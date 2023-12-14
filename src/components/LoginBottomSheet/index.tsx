@@ -4,21 +4,15 @@ import styled from '@emotion/styled';
 import {
   BottomSheet,
   type BottomSheetProps as LoginBottomSheetProps,
+  Header,
   Stack,
   Text,
 } from '../common';
-import { CloseIcon } from '../common/Icons';
 
 const LoginBottomSheet = ({ isShowing, onClickOutside }: LoginBottomSheetProps) => {
   return (
     <BottomSheet isShowing={isShowing} onClickOutside={onClickOutside}>
-      <StyledLoginBottomSheetHeader>
-        <span style={{ width: '32px', height: '32px' }} />
-        <Text color="white" styleType="h4">
-          로그인
-        </Text>
-        <CloseIcon onClick={onClickOutside} width={32} height={32} cursor="pointer" />
-      </StyledLoginBottomSheetHeader>
+      <Header title="로그인" onClose={onClickOutside} style={{ marginBottom: '60px' }} />
       <Stack direction="vertical" spacing={12} style={{ width: '100%' }}>
         <StyledGoogleLoginButton>
           <Image
@@ -50,15 +44,6 @@ const LoginBottomSheet = ({ isShowing, onClickOutside }: LoginBottomSheetProps) 
 };
 
 export default LoginBottomSheet;
-
-const StyledLoginBottomSheetHeader = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 8px 16px;
-  margin-bottom: 60px;
-  width: 100%;
-`;
 
 const StyledGoogleLoginButton = styled.div`
   position: relative;
