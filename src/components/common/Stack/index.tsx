@@ -5,7 +5,7 @@ type StackProps = {
   align?: CSSProperties['alignItems'];
   justify?: CSSProperties['justifyContent'];
   direction?: 'vertical' | 'horizontal';
-  spacing?: CSSProperties['gap'];
+  spacing?: number;
 } & HTMLAttributes<HTMLDivElement>;
 
 export const Stack = forwardRef(function Stack(
