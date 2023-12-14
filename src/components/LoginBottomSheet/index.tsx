@@ -1,43 +1,50 @@
+import Image from 'next/image';
 import styled from '@emotion/styled';
 
-import { BottomSheet, type BottomSheetProps as LoginBottomSheetProps } from '../common/BottomSheet';
-import { Icon } from '../common/Icon';
-import { Text } from '../common/Text';
+import {
+  BottomSheet,
+  type BottomSheetProps as LoginBottomSheetProps,
+  Stack,
+  Text,
+} from '../common';
+import { CloseIcon } from '../common/Icons';
 
 const LoginBottomSheet = ({ isShowing, onClickOutside }: LoginBottomSheetProps) => {
   return (
     <BottomSheet isShowing={isShowing} onClickOutside={onClickOutside}>
       <StyledLoginBottomSheetHeader>
-        <span style={{ width: '24px', height: '24px' }} />
-        <Text color="white" styleType="body1">
+        <span style={{ width: '32px', height: '32px' }} />
+        <Text color="white" styleType="h4">
           로그인
         </Text>
-        <Icon onClick={onClickOutside} type="close" size={24} cursor="pointer" />
+        <CloseIcon onClick={onClickOutside} width={32} height={32} cursor="pointer" />
       </StyledLoginBottomSheetHeader>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', width: '100%' }}>
+      <Stack direction="column" spacing={12} style={{ width: '100%' }}>
         <StyledGoogleLoginButton>
-          <Icon
-            type="google"
-            size={32}
-            cursor="pointer"
-            style={{ position: 'absolute', left: '12px' }}
+          <Image
+            src="/icons/google.svg"
+            width={32}
+            height={32}
+            style={{ position: 'absolute', left: 12 }}
+            alt="Google Icon"
           />
           <Text color="gray700" styleType="h4">
             구글 로그인
           </Text>
         </StyledGoogleLoginButton>
         <StyledKakaoLoginButton>
-          <Icon
-            type="kakao"
-            size={32}
-            cursor="pointer"
-            style={{ position: 'absolute', left: '12px' }}
+          <Image
+            src="/icons/kakao.svg"
+            width={32}
+            height={32}
+            style={{ position: 'absolute', left: 12 }}
+            alt="Kakao Icon"
           />
           <Text color="gray700" styleType="h4">
             카카오 로그인
           </Text>
         </StyledKakaoLoginButton>
-      </div>
+      </Stack>
     </BottomSheet>
   );
 };
@@ -48,7 +55,7 @@ const StyledLoginBottomSheetHeader = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 0px;
+  padding: 8px 16px;
   margin-bottom: 60px;
   width: 100%;
 `;
@@ -64,6 +71,7 @@ const StyledGoogleLoginButton = styled.div`
   padding: 12px;
   color: ${({ theme }) => theme.colors.gray900};
   background-color: ${({ theme }) => theme.colors.white};
+  cursor: pointer;
 `;
 
 const StyledKakaoLoginButton = styled.div`
@@ -77,4 +85,5 @@ const StyledKakaoLoginButton = styled.div`
   padding: 12px;
   color: ${({ theme }) => theme.colors.gray900};
   background-color: ${({ theme }) => theme.colors.yellow};
+  cursor: pointer;
 `;

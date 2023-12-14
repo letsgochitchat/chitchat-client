@@ -1,4 +1,4 @@
 type ModalProps = {
   isOpen: boolean;
-  onClose: () => void;
+  onClose: VoidFunction;
 };
