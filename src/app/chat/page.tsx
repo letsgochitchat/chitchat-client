@@ -1,14 +1,9 @@
 'use client';
 
-import ChatingSheet from '@/components/ChatingSheet/ChatingSheet';
 import styled from '@emotion/styled';
 
 const ChatPage = () => {
-  return (
-    <StyledChatPage>
-      <ChatingSheet />
-    </StyledChatPage>
-  );
+  return <StyledChatPage>chat page</StyledChatPage>;
 };
 
 export default ChatPage;

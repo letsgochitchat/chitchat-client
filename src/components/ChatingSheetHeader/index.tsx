@@ -4,18 +4,34 @@ import styled from '@emotion/styled';
 import { Text } from '../common';
 import { PeopleIcon } from '../common/Icons';
 
-const ChatingSheetHeader = () => {
+type ChatingSheetHeaderProps = {
+  title: string;
+  userOfNumber: number;
+};
+
+export const ChatingSheetHeader = ({ title, userOfNumber }: ChatingSheetHeaderProps) => {
   return (
     <StyledChatingSheetHeader>
       <StyledHandle />
       <StyledChatingSheetHeaderContent>
-        <Text color="white" styleType="h4">
-          요즘 맨유 맨날 져서 감스트 리액션 보는 맛으로 사는 맹구면 개추 ㅋㅋㅋ
+        <Text
+          color="white"
+          styleType="h4"
+          style={{
+            textOverflow: 'ellipsis',
+            overflow: 'hidden',
+            wordBreak: 'break-word',
+            display: '-webkit-box',
+            WebkitLineClamp: 2,
+            WebkitBoxOrient: 'vertical',
+          }}
+        >
+          {title}
         </Text>
         <ChatUserCounter>
           <PeopleIcon color={colors.gray400} width={20} height={20} />
           <Text color="gray400" styleType="p2">
-            8
+            {userOfNumber}
           </Text>
         </ChatUserCounter>
       </StyledChatingSheetHeaderContent>
@@ -23,12 +39,11 @@ const ChatingSheetHeader = () => {
   );
 };
 
-export default ChatingSheetHeader;
-
 const StyledChatingSheetHeader = styled.div`
   border-top-right-radius: 32px;
   border-top-left-radius: 32px;
   width: 100%;
+  max-width: 480px;
   padding-top: 12px;
   background-color: ${({ theme }) => theme.colors.black};
 `;
@@ -44,6 +59,7 @@ const StyledHandle = styled.div`
 const StyledChatingSheetHeaderContent = styled.div`
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 16px;
   padding: 6px 16px;
   margin-top: 14px;
