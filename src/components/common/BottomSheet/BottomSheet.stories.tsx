@@ -32,6 +32,7 @@ export const Default: StoryObj<BottomSheet> = {
           onClick={() => {
             setIsShowing(true);
           }}
+          style={{ color: 'white' }}
         >
           Open!
         </button>
