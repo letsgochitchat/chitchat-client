@@ -65,7 +65,7 @@ const StyledChatingSheetHeaderContent = styled.div`
   margin-top: 14px;
 `;
 
-const ChatUserCounter = styled.span`
+const StyledChatUserCounter = styled.span`
   display: flex;
   align-items: center;
   gap: 8px;
