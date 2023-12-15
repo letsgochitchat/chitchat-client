@@ -28,12 +28,12 @@ export const ChatingSheetHeader = ({ title, userOfNumber }: ChatingSheetHeaderPr
         >
           {title}
         </Text>
-        <ChatUserCounter>
+        <StyledChatUserCounter>
           <PeopleIcon color={colors.gray400} width={20} height={20} />
           <Text color="gray400" styleType="p2">
             {userOfNumber}
           </Text>
-        </ChatUserCounter>
+        </StyledChatUserCounter>
       </StyledChatingSheetHeaderContent>
     </StyledChatingSheetHeader>
   );
