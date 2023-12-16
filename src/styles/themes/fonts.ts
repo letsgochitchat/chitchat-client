@@ -10,6 +10,6 @@ export const fonts = {
   body2: `font-size: 14px; font-weight: 500; line-height: 140%;`,
   body3: `font-size: 12px; font-weight: 500; line-height: 140%;`,
   p1: `font-size: 16px; font-weight: 400; line-height: 140%;`,
-  p2: `font-size: 14px; font-weight: 500; line-height: 140%;`,
-  p3: `font-size: 12px; font-weight: 500; line-height: 140%;`,
+  p2: `font-size: 14px; font-weight: 400; line-height: 140%;`,
+  p3: `font-size: 12px; font-weight: 400; line-height: 140%;`,
 } as const;
