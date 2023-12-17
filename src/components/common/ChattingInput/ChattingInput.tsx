@@ -24,7 +24,7 @@ export const ChattingInput = ({
         <IconCamera />
       </StyledCameraButton>
       <StyledChattingInput
-        value={value}
+        value={isChatAlive ? value : ''}
         placeholder={isChatAlive ? '내용을 입력해주세요.' : '채팅방이 폭파되었습니다.'}
         disabled={!isChatAlive}
         {...props}
