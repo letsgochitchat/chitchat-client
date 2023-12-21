@@ -1,3 +1,4 @@
+import { colors } from '@/styles';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import type { InputHTMLAttributes, MouseEventHandler } from 'react';
@@ -16,7 +17,7 @@ export const ChattingInput = ({ isChatEnd, value, onSend, ...props }: ChattingIn
   return (
     <StyledChattingInputWrapper>
       <StyledCameraButton isChatAlive={isChatEnd}>
-        <IconCamera />
+        <IconCamera width={20} height={20} color={colors.black} />
       </StyledCameraButton>
       <StyledChattingInput
         value={isChatEnd ? '' : value}
