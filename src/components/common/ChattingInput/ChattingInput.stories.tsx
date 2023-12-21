@@ -13,7 +13,7 @@ export default meta;
 
 export const Default: StoryObj<ChattingInput> = {
   args: {
-    isChatAlive: true,
+    isChatEnd: false,
     value: '',
   },
   render: args => <ChattingInputComponent {...args} />,
