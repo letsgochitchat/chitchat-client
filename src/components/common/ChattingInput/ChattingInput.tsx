@@ -6,30 +6,25 @@ import { IconCamera } from '../Icons/IconCamera';
 import { Text } from '../Text';
 
 type ChattingInputProps = {
-  isChatAlive: boolean;
-  onClickSendButton: MouseEventHandler<HTMLButtonElement>;
+  isChatEnd: boolean;
+  onSend: MouseEventHandler<HTMLButtonElement>; // todo: 네이밍 다시 고려해보기
 } & InputHTMLAttributes<HTMLInputElement>;
 
-export const ChattingInput = ({
-  isChatAlive,
-  value,
-  onClickSendButton,
-  ...props
-}: ChattingInputProps) => {
-  const sendButtonColor = isChatAlive ? (!!value ? 'secondary' : 'gray400') : 'gray500';
+export const ChattingInput = ({ isChatEnd, value, onSend, ...props }: ChattingInputProps) => {
+  const sendButtonColor = isChatEnd ? 'gray500' : Boolean(value) ? 'secondary' : 'gray400';
 
   return (
     <StyledChattingInputWrapper>
-      <StyledCameraButton isChatAlive={isChatAlive}>
+      <StyledCameraButton isChatAlive={isChatEnd}>
         <IconCamera />
       </StyledCameraButton>
       <StyledChattingInput
-        value={isChatAlive ? value : ''}
-        placeholder={isChatAlive ? '내용을 입력해주세요.' : '채팅방이 폭파되었습니다.'}
-        disabled={!isChatAlive}
+        value={isChatEnd ? '' : value}
+        placeholder={isChatEnd ? '채팅방이 폭파되었습니다.' : '내용을 입력해주세요.'}
+        disabled={isChatEnd}
         {...props}
       />
-      <button type="button" onClick={onClickSendButton}>
+      <button type="button" onClick={onSend}>
         <Text styleType="body1" color={sendButtonColor}>
           보내기
         </Text>
