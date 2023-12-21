@@ -11,17 +11,24 @@ type ChattingInputProps = {
   onSend: MouseEventHandler<HTMLButtonElement>; // todo: 네이밍 다시 고려해보기
 } & InputHTMLAttributes<HTMLInputElement>;
 
-export const ChattingInput = ({ isChatEnd, value, onSend, ...props }: ChattingInputProps) => {
+export const ChattingInput = ({
+  onChange,
+  onSend,
+  value,
+  isChatEnd,
+  ...props
+}: ChattingInputProps) => {
   const sendButtonColor = isChatEnd ? 'gray500' : Boolean(value) ? 'secondary' : 'gray400';
 
   return (
     <StyledChattingInputWrapper>
-      <StyledCameraButton isChatAlive={isChatEnd}>
+      <StyledCameraButton isChatEnd={isChatEnd}>
         <IconCamera width={20} height={20} color={colors.black} />
       </StyledCameraButton>
       <StyledChattingInput
+        onChange={onChange}
         value={isChatEnd ? '' : value}
-        placeholder={isChatEnd ? '채팅방이 폭파되었습니다.' : '내용을 입력해주세요.'}
+        placeholder={isChatEnd ? '채팅방이 폭파되었습니다.' : '메세지 보내기...'}
         disabled={isChatEnd}
         {...props}
       />
@@ -36,6 +43,7 @@ export const ChattingInput = ({ isChatEnd, value, onSend, ...props }: ChattingIn
 
 const StyledChattingInputWrapper = styled.div`
   width: 100%;
+  max-width: 480px;
   display: flex;
   gap: 8px;
   align-items: center;
@@ -48,15 +56,15 @@ const StyledChattingInputWrapper = styled.div`
   `};
 `;
 
-const StyledCameraButton = styled.button<{ isChatAlive: boolean }>`
+const StyledCameraButton = styled.button<{ isChatEnd: boolean }>`
   width: 32px;
   height: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 16px;
-  background-color: ${({ theme, isChatAlive }) =>
-    isChatAlive ? theme.colors.secondary : theme.colors.gray500};
+  background-color: ${({ theme, isChatEnd }) =>
+    isChatEnd ? theme.colors.gray500 : theme.colors.secondary};
 `;
 
 const StyledChattingInput = styled.input`
