@@ -1,4 +1,5 @@
 import { colors } from '@/styles';
+import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 import { CheckIcon } from '../Icons';
@@ -20,7 +21,7 @@ export const Toast = ({ message }: ToastProps) => {
 };
 
 const StyledToast = styled.div`
-  display: flex;
+  display: inline-flex;
   justify-content: center;
   align-items: center;
   gap: 8px;
@@ -28,4 +29,9 @@ const StyledToast = styled.div`
   padding-right: 16px;
   padding-left: 12px;
   border-radius: 16px;
+  ${({ theme }) => css`
+    background-color: ${theme.colors.black};
+    border: 1px solid ${theme.colors.gray600};
+  `}
+  box-shadow: 0px 6px 8px 0px rgba(0, 0, 0, 0.25);
 `;
