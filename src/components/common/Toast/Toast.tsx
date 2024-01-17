@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+import { useToast } from '@/hooks/common/useToast';
 import { colors } from '@/styles';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
@@ -5,11 +7,24 @@ import styled from '@emotion/styled';
 import { CheckIcon } from '../Icons';
 import { Text } from '..';
 
-type ToastProps = {
+export type ToastProps = {
   message: string;
+  id: number;
 };
 
-export const Toast = ({ message }: ToastProps) => {
+export const Toast = ({ id, message }: ToastProps) => {
+  const { removeToast } = useToast();
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      removeToast(id);
+    }, 3000);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [id, removeToast]);
+
   return (
     <StyledToast>
       <CheckIcon color={colors.secondary} width={24} height={24} />

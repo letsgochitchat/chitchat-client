@@ -1,15 +1,11 @@
+import { useToast } from '@/hooks/common/useToast';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Toast as ToastComponent } from '.';
+import { Toast as ToastComponent } from './Toast';
 
 type Toast = typeof ToastComponent;
 
 const meta: Meta<Toast> = {
-  argTypes: {
-    message: {
-      control: { type: 'text' },
-    },
-  },
   component: ToastComponent,
   title: 'Components/Toast',
 };
@@ -17,8 +13,11 @@ const meta: Meta<Toast> = {
 export default meta;
 
 export const Default: StoryObj<Toast> = {
-  args: {
-    message: '로그인 성공',
+  render: () => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const { addToast } = useToast();
+
+    // eslint-disable-next-line react/button-has-type
+    return <button onClick={() => addToast('제발')}>클릭</button>;
   },
-  render: args => <ToastComponent {...args} />,
 };
