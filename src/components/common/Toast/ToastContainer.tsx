@@ -8,14 +8,18 @@ type ToastContainerProps = {
 };
 
 export const ToastContainer = ({ toasts }: ToastContainerProps) => {
-  return createPortal(
-    <StyledToastList>
-      {toasts.map(toast => (
-        <Toast key={toast.id} id={toast.id} message={toast.message} />
-      ))}
-    </StyledToastList>,
-    document.body
-  );
+  if (typeof document !== 'undefined') {
+    return createPortal(
+      <StyledToastList>
+        {toasts.map(toast => (
+          <Toast key={toast.id} id={toast.id} message={toast.message} />
+        ))}
+      </StyledToastList>,
+      document.body
+    );
+  }
+
+  return null;
 };
 
 const StyledToastList = styled.div`
