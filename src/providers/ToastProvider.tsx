@@ -1,3 +1,5 @@
+'use client';
+
 import { type PropsWithChildren, useCallback, useState } from 'react';
 import { ToastContext } from '@/contexts/ToastContext';
 
