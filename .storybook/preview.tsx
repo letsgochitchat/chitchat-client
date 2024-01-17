@@ -2,7 +2,7 @@ import React from 'react';
 import { ThemeProvider } from '@emotion/react';
 import { theme } from '../src/styles/themes';
 import { GlobalStyle } from '../src/styles';
-import { ToastProvider } from '../src/components/common/Toast/ToastProvider';
+import { ToastProvider } from '../src/providers';
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },

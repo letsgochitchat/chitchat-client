@@ -1,8 +1,7 @@
 import { type PropsWithChildren, useCallback, useState } from 'react';
 import { ToastContext } from '@/contexts/ToastContext';
 
-import { ToastContainer } from './ToastContainer';
-import { type ToastProps } from '.';
+import { ToastContainer, type ToastProps } from '../components/common/Toast';
 
 let id = 1;
 
