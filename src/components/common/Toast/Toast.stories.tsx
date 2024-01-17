@@ -17,7 +17,11 @@ export const Default: StoryObj<Toast> = {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const { addToast } = useToast();
 
-    // eslint-disable-next-line react/button-has-type
-    return <button onClick={() => addToast('제발')}>클릭</button>;
+    return (
+      // eslint-disable-next-line react/button-has-type
+      <button onClick={() => addToast('제발')} style={{ color: 'white' }}>
+        클릭
+      </button>
+    );
   },
 };
