@@ -19,7 +19,11 @@ export const ToastContainer = ({ toasts }: ToastContainerProps) => {
 };
 
 const StyledToastList = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
   position: absolute;
-  right: 0;
-  top: 0;
+  left: 50%;
+  top: 52px;
+  transform: translate(-50%, -52px);
 `;
