@@ -1,15 +1,18 @@
 'use client';
 
 import { type PropsWithChildren } from 'react';
+import { ToastProvider } from '@/providers/ToastProvider';
 import { theme } from '@/styles';
 import styled from '@emotion/styled';
 import { OverlayProvider } from '@toss/use-overlay';
 
 const Template = ({ children }: PropsWithChildren) => {
   return (
-    <OverlayProvider>
-      <StyledLayout>{children}</StyledLayout>
-    </OverlayProvider>
+    <ToastProvider>
+      <OverlayProvider>
+        <StyledLayout>{children}</StyledLayout>
+      </OverlayProvider>
+    </ToastProvider>
   );
 };
 
