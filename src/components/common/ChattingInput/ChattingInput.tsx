@@ -4,11 +4,11 @@ import styled from '@emotion/styled';
 import type { InputHTMLAttributes, MouseEventHandler } from 'react';
 
 import { IconCamera } from '../Icons/IconCamera';
-import { Text } from '../Text';
+import { IconSend } from '../Icons/Send';
 
 type ChattingInputProps = {
   isChatEnd: boolean;
-  onSend: MouseEventHandler<HTMLButtonElement>; // todo: 네이밍 다시 고려해보기
+  onSend: MouseEventHandler<HTMLButtonElement>;
 } & InputHTMLAttributes<HTMLInputElement>;
 
 export const ChattingInput = ({
@@ -18,13 +18,9 @@ export const ChattingInput = ({
   isChatEnd,
   ...props
 }: ChattingInputProps) => {
-  const sendButtonColor = isChatEnd ? 'gray500' : Boolean(value) ? 'secondary' : 'gray400';
-
   return (
     <StyledChattingInputWrapper>
-      <StyledCameraButton isChatEnd={isChatEnd}>
-        <IconCamera width={20} height={20} color={colors.black} />
-      </StyledCameraButton>
+      <IconCamera width={24} height={24} color={colors.gray400} />
       <StyledChattingInput
         onChange={onChange}
         value={isChatEnd ? '' : value}
@@ -32,52 +28,55 @@ export const ChattingInput = ({
         disabled={isChatEnd}
         {...props}
       />
-      <button type="button" onClick={onSend}>
-        <Text styleType="body1" color={sendButtonColor}>
-          보내기
-        </Text>
-      </button>
+      <StyledSendButton onClick={onSend} isChatEnd={isChatEnd} isValidValue={Boolean(value)}>
+        <IconSend width={24} height={24} color={colors.black} />
+      </StyledSendButton>
     </StyledChattingInputWrapper>
   );
 };
 
 const StyledChattingInputWrapper = styled.div`
+  position: relative;
   width: 100%;
+  height: 40px;
   display: flex;
-  gap: 8px;
   align-items: center;
-  padding: 4px;
-  padding-right: 12px;
-  border-radius: 20px;
+  gap: 11px;
+  padding: 5px 12px;
   ${({ theme }) => css`
-    border: 1px solid ${theme.colors.gray600};
+    border-top: 1px solid ${theme.colors.gray600};
     background-color: ${theme.colors.black};
   `};
-`;
-
-const StyledCameraButton = styled.button<{ isChatEnd: boolean }>`
-  width: 32px;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 16px;
-  background-color: ${({ theme, isChatEnd }) =>
-    isChatEnd ? theme.colors.gray500 : theme.colors.secondary};
 `;
 
 const StyledChattingInput = styled.input`
   border: none;
   outline: none;
-  flex-grow: 1;
+  padding: 0 10px;
+  height: 100%;
+  width: 100%;
+  border-radius: 16px;
 
   ${({ theme }) => css`
     ${theme.fonts.p1}
-    color: ${theme.colors.white};
-    background-color: ${theme.colors.black};
+    color: ${theme.colors.gray400};
+    background-color: ${theme.colors.gray700};
 
     ::placeholder {
       color: ${theme.colors.gray400};
     }
   `}
+`;
+
+const StyledSendButton = styled.button<{ isChatEnd: boolean; isValidValue: boolean }>`
+  position: absolute;
+  right: 10px;
+  background-color: ${({ isChatEnd, isValidValue, theme }) =>
+    isChatEnd || isValidValue ? theme.colors.gray500 : theme.colors.secondary};
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
 `;
