@@ -34,7 +34,6 @@ const StyledHeader = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 480px;
   width: 100%;
   height: 48px;
   padding: 8px 16px;

@@ -43,7 +43,6 @@ export const ChattingInput = ({
 
 const StyledChattingInputWrapper = styled.div`
   width: 100%;
-  max-width: 480px;
   display: flex;
   gap: 8px;
   align-items: center;
