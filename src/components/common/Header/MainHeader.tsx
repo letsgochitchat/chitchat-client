@@ -18,7 +18,6 @@ const StyledMainHeader = styled.div`
   justify-content: space-between;
   align-items: center;
   background-color: ${({ theme }) => theme.colors.gray900};
-  max-width: 480px;
   width: 100%;
   height: 48px;
   padding: 8px 16px;

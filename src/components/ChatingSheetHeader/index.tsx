@@ -43,7 +43,6 @@ const StyledChatingSheetHeader = styled.div`
   border-top-right-radius: 32px;
   border-top-left-radius: 32px;
   width: 100%;
-  max-width: 480px;
   padding-top: 12px;
   background-color: ${({ theme }) => theme.colors.black};
 `;

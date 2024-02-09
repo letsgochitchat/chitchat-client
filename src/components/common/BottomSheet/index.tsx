@@ -41,7 +41,6 @@ const StyledDIM = styled(motion.div)`
   width: 100vw;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.6);
-  max-width: 480px;
   margin: 0 auto;
 `;
 
