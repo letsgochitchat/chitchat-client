@@ -12,7 +12,6 @@ type ChatingSheetHeaderProps = {
 export const ChatingSheetHeader = ({ title, userOfNumber }: ChatingSheetHeaderProps) => {
   return (
     <StyledChatingSheetHeader>
-      <StyledHandle />
       <StyledChatingSheetHeaderContent>
         <Text
           color="white"
@@ -47,14 +46,6 @@ const StyledChatingSheetHeader = styled.div`
   background-color: ${({ theme }) => theme.colors.black};
 `;
 
-const StyledHandle = styled.div`
-  width: 64px;
-  height: 6px;
-  border-radius: 100px;
-  background-color: ${({ theme }) => theme.colors.gray600};
-  margin: 0 auto;
-`;
-
 const StyledChatingSheetHeaderContent = styled.div`
   display: flex;
   align-items: center;
@@ -71,5 +62,4 @@ const StyledChatUserCounter = styled.span`
   height: 28px;
   padding: 0px 10px 0px 8px;
   border-radius: 8px;
-  background-color: ${({ theme }) => theme.colors.gray700};
 `;
