@@ -1,7 +1,16 @@
 import { type SVGProps } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { AddIcon, ArrowBackIcon, CameraIcon, CheckIcon, CloseIcon, MenuIcon, PeopleIcon } from '.';
+import {
+  AddIcon,
+  ArrowBackIcon,
+  CameraIcon,
+  CloseIcon,
+  MenuIcon,
+  PeopleIcon,
+  ToastErrorIcon,
+  ToastSuccessIcon,
+} from '.';
 
 type Icon = SVGProps<SVGSVGElement>;
 
@@ -43,12 +52,20 @@ export const Camera: StoryObj<Icon> = {
   render: args => <CameraIcon {...args} />,
 };
 
-export const Check: StoryObj<Icon> = {
+export const ToastError: StoryObj<Icon> = {
   args: {
     width: 24,
     height: 24,
   },
-  render: args => <CheckIcon {...args} />,
+  render: args => <ToastErrorIcon {...args} />,
+};
+
+export const ToastSuccess: StoryObj<Icon> = {
+  args: {
+    width: 24,
+    height: 24,
+  },
+  render: args => <ToastSuccessIcon {...args} />,
 };
 
 export const Close: StoryObj<Icon> = {

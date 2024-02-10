@@ -3,7 +3,7 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import type { InputHTMLAttributes, MouseEventHandler } from 'react';
 
-import { IconCamera } from '../Icons/IconCamera';
+import { CameraIcon } from '../Icons';
 import { Text } from '../Text';
 
 type ChattingInputProps = {
@@ -23,7 +23,7 @@ export const ChattingInput = ({
   return (
     <StyledChattingInputWrapper>
       <StyledCameraButton isChatEnd={isChatEnd}>
-        <IconCamera width={20} height={20} color={colors.black} />
+        <CameraIcon width={20} height={20} color={colors.black} />
       </StyledCameraButton>
       <StyledChattingInput
         onChange={onChange}

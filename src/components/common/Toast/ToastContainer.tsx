@@ -12,7 +12,12 @@ export const ToastContainer = ({ toasts }: ToastContainerProps) => {
     return createPortal(
       <StyledToastList>
         {toasts.map(toast => (
-          <Toast key={toast.id} id={toast.id} message={toast.message} />
+          <Toast
+            key={toast.id}
+            id={toast.id}
+            actionType={toast.actionType}
+            message={toast.message}
+          />
         ))}
       </StyledToastList>,
       document.body

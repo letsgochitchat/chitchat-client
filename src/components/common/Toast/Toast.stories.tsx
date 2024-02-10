@@ -15,11 +15,11 @@ export default meta;
 export const Default: StoryObj<Toast> = {
   render: () => {
     // eslint-disable-next-line react-hooks/rules-of-hooks
-    const { addToast } = useToast();
+    const toast = useToast();
 
     return (
       // eslint-disable-next-line react/button-has-type
-      <button onClick={() => addToast('제발')} style={{ color: 'white' }}>
+      <button onClick={() => toast.error('제발')} style={{ color: 'white' }}>
         클릭
       </button>
     );
