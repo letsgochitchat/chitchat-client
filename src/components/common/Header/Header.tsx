@@ -2,6 +2,7 @@ import { type HTMLAttributes } from 'react';
 import styled from '@emotion/styled';
 
 import { ArrowBackIcon, CloseIcon } from '../Icons';
+import { Spacer } from '../Spacer';
 import { Text } from '..';
 
 type HeaderProps = {
@@ -16,7 +17,7 @@ export const Header = ({ title, onClose, onBack, ...props }: HeaderProps) => {
       {onBack ? (
         <ArrowBackIcon onClick={onBack} width={32} height={32} cursor="pointer" />
       ) : (
-        <StyledGap />
+        <Spacer width={32} height={32} />
       )}
       <Text color="white" styleType="h4">
         {title}
@@ -24,7 +25,7 @@ export const Header = ({ title, onClose, onBack, ...props }: HeaderProps) => {
       {onClose ? (
         <CloseIcon onClick={onClose} width={32} height={32} cursor="pointer" />
       ) : (
-        <StyledGap />
+        <Spacer width={32} height={32} />
       )}
     </StyledHeader>
   );
@@ -38,9 +39,4 @@ const StyledHeader = styled.div`
   height: 48px;
   padding: 8px 16px;
   background-color: ${({ theme }) => theme.colors.gray900};
-`;
-
-const StyledGap = styled.span`
-  width: 32px;
-  height: 32px;
 `;
