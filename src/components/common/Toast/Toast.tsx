@@ -19,7 +19,7 @@ export const Toast = ({ id, message, actionType = 'success' }: ToastProps) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       toast.remove(id);
-    }, 3000);
+    }, 2000);
 
     return () => {
       clearTimeout(timer);
