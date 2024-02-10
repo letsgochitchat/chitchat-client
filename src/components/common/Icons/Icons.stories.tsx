@@ -1,7 +1,7 @@
 import { type SVGProps } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { AddIcon, ArrowBackIcon, CameraIcon, CheckIcon, CloseIcon, MenuIcon, PeopleIcon } from '.';
+import { AddIcon, ArrowBackIcon, CloseIcon, MenuIcon, PeopleIcon } from '.';
 
 type Icon = SVGProps<SVGSVGElement>;
 

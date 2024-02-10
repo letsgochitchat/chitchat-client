@@ -7,27 +7,32 @@ import { ToastContainer, type ToastProps } from '../components/common/Toast';
 
 let id = 1;
 
-type ToastProviderProps = PropsWithChildren;
-
-export const ToastProvider = ({ children }: ToastProviderProps) => {
+export const ToastProvider = ({ children }: PropsWithChildren) => {
   const [toasts, setToasts] = useState<ToastProps[]>([]);
 
-  const addToast = useCallback(
+  const success = useCallback(
     (message: string) => {
-      setToasts(prevToasts => [...prevToasts, { id: id++, message }]);
+      setToasts(prevToasts => [...prevToasts, { id: id++, message, actionType: 'success' }]);
     },
     [setToasts]
   );
 
-  const removeToast = useCallback(
+  const error = useCallback(
+    (message: string) => {
+      setToasts(prevToasts => [...prevToasts, { id: id++, message, actionType: 'error' }]);
+    },
+    [setToasts]
+  );
+
+  const remove = useCallback(
     (toastId: number) => {
-      setToasts(prevToasts => prevToasts.filter(toast => toast.id !== toastId));
+      setToasts(prevToasts => prevToasts.filter(prevToast => prevToast.id !== toastId));
     },
     [setToasts]
   );
 
   return (
-    <ToastContext.Provider value={{ addToast, removeToast }}>
+    <ToastContext.Provider value={{ success, error, remove }}>
       <ToastContainer toasts={toasts} />
       {children}
     </ToastContext.Provider>

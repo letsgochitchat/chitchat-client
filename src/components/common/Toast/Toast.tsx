@@ -4,30 +4,35 @@ import { colors } from '@/styles';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { CheckIcon } from '../Icons';
+import { ToastErrorIcon, ToastSuccessIcon } from '../Icons';
 import { Text } from '..';
 
 export type ToastProps = {
   message: string;
+  actionType?: 'success' | 'error';
   id: number;
 };
 
-export const Toast = ({ id, message }: ToastProps) => {
-  const { removeToast } = useToast();
+export const Toast = ({ id, message, actionType = 'success' }: ToastProps) => {
+  const toast = useToast();
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      removeToast(id);
+      toast.remove(id);
     }, 3000);
 
     return () => {
       clearTimeout(timer);
     };
-  }, [id, removeToast]);
+  }, [id, toast]);
 
   return (
     <StyledToast>
-      <CheckIcon color={colors.secondary} width={24} height={24} />
+      {actionType === 'success' ? (
+        <ToastSuccessIcon color={colors.secondary} width={24} height={24} />
+      ) : (
+        <ToastErrorIcon color={colors.red} width={24} height={24} />
+      )}
       <Text styleType="body1" color="white">
         {message}
       </Text>
@@ -35,7 +40,24 @@ export const Toast = ({ id, message }: ToastProps) => {
   );
 };
 
+const slideDownAnimation = css`
+  @keyframes slideDown {
+    0% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  animation: slideDown 0.18s ease-out;
+`;
+
 const StyledToast = styled.div`
+  ${slideDownAnimation}
+
   display: inline-flex;
   justify-content: center;
   align-items: center;

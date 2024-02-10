@@ -1,11 +1,13 @@
 import { createContext } from 'react';
 
 type ToastContextProps = {
-  addToast: (message: string) => void;
-  removeToast: (toastId: number) => void;
+  success: (message: string) => void;
+  error: (message: string) => void;
+  remove: (toastId: number) => void;
 };
 
 export const ToastContext = createContext<ToastContextProps>({
-  addToast: () => {},
-  removeToast: () => {},
+  success: () => {},
+  error: () => {},
+  remove: () => {},
 });
