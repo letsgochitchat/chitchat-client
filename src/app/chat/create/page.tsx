@@ -1,11 +1,15 @@
 'use client';
 
-import React, { useState } from 'react';
+import { type ChangeEvent, useState } from 'react';
 import { Button, Header, Input } from '@/components/common';
 import styled from '@emotion/styled';
 
 const CreateChatPage = () => {
-  const [title] = useState<string>('');
+  const [title, setTitle] = useState('');
+
+  const handleTitleInput = (e: ChangeEvent<HTMLInputElement>) => {
+    setTitle(e.target.value);
+  };
 
   return (
     <StyledCreateChatPage>
@@ -15,9 +19,10 @@ const CreateChatPage = () => {
         guideMessage="채팅방 주제를 입력해주세요"
         label="채팅방 주제"
         placeholder="최대 18글자"
+        onChange={handleTitleInput}
       />
 
-      <Button onClick={() => {}} disabled={!title}>
+      <Button onClick={() => {}} disabled={!title} style={{ position: 'fixed', bottom: 24 }}>
         채팅방 생성
       </Button>
     </StyledCreateChatPage>
@@ -30,8 +35,7 @@ const StyledCreateChatPage = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  padding-bottom: 24px;
+  gap: 140px;
   min-height: 100vh;
   width: 100%;
 `;
