@@ -1,12 +1,14 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, Header, Input } from '@/components/common';
 import styled from '@emotion/styled';
 
-const CreatePage = () => {
+const CreateChatPage = () => {
+  const [title] = useState<string>('');
+
   return (
-    <StyledCreatePage>
+    <StyledCreateChatPage>
       <Header title="채팅방 생성" onClose={() => {}} />
 
       <Input
@@ -15,14 +17,16 @@ const CreatePage = () => {
         placeholder="최대 18글자"
       />
 
-      <Button onClick={() => {}}>채팅방 생성</Button>
-    </StyledCreatePage>
+      <Button onClick={() => {}} disabled={!title}>
+        채팅방 생성
+      </Button>
+    </StyledCreateChatPage>
   );
 };
 
-export default CreatePage;
+export default CreateChatPage;
 
-const StyledCreatePage = styled.div`
+const StyledCreateChatPage = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
