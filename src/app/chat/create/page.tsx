@@ -22,7 +22,11 @@ const CreateChatPage = () => {
         onChange={handleTitleInput}
       />
 
-      <Button onClick={() => {}} disabled={!title} style={{ position: 'fixed', bottom: 24 }}>
+      <Button
+        onClick={() => {}}
+        disabled={!title}
+        style={{ position: 'fixed', bottom: 24, maxWidth: '448px' }}
+      >
         채팅방 생성
       </Button>
     </StyledCreateChatPage>
