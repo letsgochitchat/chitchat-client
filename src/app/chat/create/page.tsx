@@ -7,7 +7,7 @@ import styled from '@emotion/styled';
 const CreateChatPage = () => {
   const [title, setTitle] = useState('');
 
-  const handleTitleInput = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleTitleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setTitle(e.target.value);
   };
 
@@ -19,16 +19,12 @@ const CreateChatPage = () => {
         guideMessage="채팅방 주제를 입력해주세요"
         label="채팅방 주제"
         placeholder="최대 18글자"
-        onChange={handleTitleInput}
+        onChange={handleTitleChange}
       />
 
-      <Button
-        onClick={() => {}}
-        disabled={!title}
-        style={{ position: 'fixed', bottom: 24, maxWidth: '448px' }}
-      >
+      <StyledCreateButton onClick={() => {}} disabled={!Boolean(title)}>
         채팅방 생성
-      </Button>
+      </StyledCreateButton>
     </StyledCreateChatPage>
   );
 };
@@ -42,4 +38,10 @@ const StyledCreateChatPage = styled.div`
   gap: 140px;
   min-height: 100vh;
   width: 100%;
+`;
+
+const StyledCreateButton = styled(Button)`
+  position: fixed;
+  bottom: 24px;
+  max-width: 448px;
 `;
