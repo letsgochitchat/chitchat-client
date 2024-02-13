@@ -1,5 +1,7 @@
 import Image from 'next/image';
+import { get } from '@/libs/api/client';
 import styled from '@emotion/styled';
+import { isAxiosError } from 'axios';
 
 import {
   BottomSheet,
@@ -10,11 +12,25 @@ import {
 } from '../common';
 
 const LoginBottomSheet = ({ isShowing, onClickOutside }: LoginBottomSheetProps) => {
+  const handleRedirectGoogleAuthPage = async () => {
+    try {
+      await get('/auth/oauth/google');
+    } catch (error) {
+      if (isAxiosError(error)) {
+        if (error.response && error.response.status === 302) {
+          window.location.href = error.response.headers.location;
+        } else {
+          console.error(error);
+        }
+      }
+    }
+  };
+
   return (
     <BottomSheet isShowing={isShowing} onClickOutside={onClickOutside}>
       <Header title="로그인" onClose={onClickOutside} style={{ marginBottom: '60px' }} />
       <Stack direction="vertical" spacing={12} style={{ width: '100%' }}>
-        <StyledGoogleLoginButton>
+        <StyledGoogleLoginButton onClick={handleRedirectGoogleAuthPage}>
           <Image
             src="/icons/google.svg"
             width={32}

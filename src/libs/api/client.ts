@@ -1,17 +1,13 @@
 import { LOCAL_STORAGE_KEY } from '@/constants/storage';
 import type { ApiErrorScheme } from '@/exceptions';
 import { ApiException, CustomException, errorMessage } from '@/exceptions';
-import { isProd } from '@/utils';
 import type { AxiosError, AxiosResponse, InternalAxiosRequestConfig } from 'axios';
 import axios from 'axios';
 
 import { Storage } from '../storage';
 
-const DEVELOPMENT_API_URL = 'http://localhost:8088';
-const PRODUCTION_API_URL = 'http://localhost:8088';
-
 const instance = axios.create({
-  baseURL: isProd(process.env.NODE_ENV) ? PRODUCTION_API_URL : DEVELOPMENT_API_URL,
+  baseURL: process.env.NEXT_PUBLIC_BASE_URL,
   timeout: 15000,
 });
 
@@ -45,6 +41,12 @@ const interceptorResponseFulfilled = (res: AxiosResponse) => {
 
 // Response interceptor
 const interceptorResponseRejected = (error: AxiosError<ApiErrorScheme>) => {
+  if (error.response && [301, 302].includes(error.response.status)) {
+    const redirectUrl = error.response.headers.location;
+
+    return get(redirectUrl);
+  }
+
   if (error.response?.data?.['response_messages']) {
     return Promise.reject(new ApiException(error.response.data, error.response.status));
   }
